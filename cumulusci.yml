@@ -1,0 +1,30 @@
+minimum_cumulusci_version: '3.12.2'
+project:
+    name: Food-Bank-Implementation
+    package:
+        name:  Food-Bank-Implementation
+        api_version: '48.0'
+    dependencies:
+        - github: 'https://github.com/SalesforceFoundation/NPSP'
+        - github: 'https://github.com/toddhalfpenny/cci-food-bank'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/Food-Bank-Implementation/tests
+            options:
+                outputdir: robot/Food-Bank-Implementation/results
+
+    robot_testdoc:
+        options:
+            path: robot/Food-Bank-Implementation/tests
+            output: robot/Food-Bank-Implementation/doc/Food-Bank-Implementation_tests.html
+sources:
+    npsp:
+        github: https://github.com/SalesforceFoundation/NPSP
+flows:
+    dependencies:
+        steps:
+            3:
+                flow: npsp:config_managed
